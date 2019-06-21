@@ -1,0 +1,102 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "a5684fe0-ae79-4d48-bac6-62df16b7b7c1": {
+        "id": "a5684fe0-ae79-4d48-bac6-62df16b7b7c1",
+        "parent": null,
+        "name": "Sample1",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "420f8faa-56da-4b53-92ca-61f31399fcb6"
+        ],
+        "isRemovable": false,
+        "filePath": "Sample1"
+      },
+      "420f8faa-56da-4b53-92ca-61f31399fcb6": {
+        "id": "420f8faa-56da-4b53-92ca-61f31399fcb6",
+        "parent": "a5684fe0-ae79-4d48-bac6-62df16b7b7c1",
+        "name": "lambda.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "Sample1/lambda.js",
+        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [
+          {
+            "resourceName": "apigusEast1indunil1testhiruget",
+            "config": {}
+          }
+        ]
+      }
+    },
+    "deletedFiles": [],
+    "rootNode": "a5684fe0-ae79-4d48-bac6-62df16b7b7c1",
+    "openFiles": [
+      "420f8faa-56da-4b53-92ca-61f31399fcb6"
+    ],
+    "currentFileId": "420f8faa-56da-4b53-92ca-61f31399fcb6",
+    "resources": {
+      "apigusEast1indunil1testhiruget": {
+        "name": "apigusEast1indunil1testhiruget",
+        "type": "API_GATEWAY",
+        "config": {
+          "selectedRegion": "us-east-1",
+          "apiMode": 0,
+          "apiName": "indunil1",
+          "endpointType": "EDGE",
+          "resourceMode": 0,
+          "resourceName": "test/hiru",
+          "resourcePath": "/test/hiru",
+          "restMethod": "GET",
+          "proxyIntegration": false,
+          "enableCORS": false,
+          "stageMode": 0,
+          "stageName": "Test",
+          "mode": 0
+        }
+      }
+    },
+    "customTemplate": {
+      "dialect": null,
+      "definitions": {}
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {}
+    }
+  },
+  "PROJECT_META": {
+    "projectName": "Sample1",
+    "projectDescription": "Sample Project 1st ",
+    "projectVersion": "1.0.0",
+    "projectRegion": "us-east-1",
+    "platform": "AWS",
+    "platformRegions": {},
+    "lastSave": 1561093607432
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "Sample1",
+      "url": "https://github.com/Indunil1992/Sample1"
+    }
+  }
+}
