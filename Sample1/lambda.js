@@ -10,9 +10,11 @@ exports.handler = function (event, context, callback) {
         TopicArn: 'arn:aws:sns:us-east-1:318300609668:TestSNS'
     }).promise()
         .then(data => {
+            callback(null, { "message": "Successfully y executed" })
             // your code goes here
         })
         .catch(err => {
+            callback(null, { "message": "Successfully n  executed" })
             // error handling goes here
         });
         callback(null, {"message": "Successfully gggg executed"});
