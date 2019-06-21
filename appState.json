@@ -67,7 +67,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "Sample1/sachithra.js",
-        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "code": "let AWS = require('aws-sdk');\nconst s3 = new AWS.S3();\n\nexports.handler = function (event, context, callback) {\n\n    callback(null, { \"message\": \"Successfully executed\" });\n    s3.deleteObject({\n        'Bucket': \"aws-amplify-hotspaces\",\n        'Key': \"hello world\"\n    }).promise()\n        .then(data => {\n            console.log(data);      \n            callback(null, { \"message\": \"Successfull : \", data }); \n                 // successful response\n            /*\n                data = {}\n            */\n        })\n        .catch(err => {\n            console.log(err, err.stack);\n            callback(null, { \"message\": \"error :\", err });\n             // an error occurred\n        });\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -84,7 +84,7 @@
       "420f8faa-56da-4b53-92ca-61f31399fcb6",
       "5cfb5d50-4e3a-4e14-9161-9da390e97e86"
     ],
-    "currentFileId": "420f8faa-56da-4b53-92ca-61f31399fcb6",
+    "currentFileId": "5cfb5d50-4e3a-4e14-9161-9da390e97e86",
     "resources": {
       "apigusEast1indunil1testhiruget": {
         "name": "apigusEast1indunil1testhiruget",
@@ -184,7 +184,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1561103587448
+    "lastSave": 1561105665262
   },
   "VCS_STATE": {
     "provider": "GitHub",
