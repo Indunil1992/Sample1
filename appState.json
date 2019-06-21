@@ -24,7 +24,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "Sample1/lambda.js",
-        "code": "exports.handler = function(event, context, callback) {\r\n    \r\n    callback(null, {\"message\": \"Successfully executed\"});\r\n}",
+        "code": "let AWS = require('aws-sdk');\r\nconst sns = new AWS.SNS();\r\n\r\nexports.handler = function (event, context, callback) {\r\n\r\n    callback(null, { \"message\": \"Successfully executed\" });\r\n    sns.setTopicAttributes({\r\n        AttributeName: 'DisplayName',\r\n        AttributeValue: 'indunil',\r\n        TopicArn: 'arn:aws:sns:us-east-1:318300609668:TestSNS'\r\n    }).promise()\r\n        .then(data => {\r\n            // your code goes here\r\n        })\r\n        .catch(err => {\r\n            // error handling goes here\r\n        });\r\n        callback(null, {\"message\": \"Successfully executed\"});\r\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -162,7 +162,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1561097601354
+    "lastSave": 1561098281224
   },
   "VCS_STATE": {
     "provider": "GitHub",
