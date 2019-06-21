@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "Sample1/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\nconst s3 = new AWS.S3();\n\nexports.handler = function (event, context, callback) {\n    sns.getTopicAttributes({\n        TopicArn: 'arn:aws:sns:us-east-1:318300609668:TestSNS'\n    }).promise()\n        .then(data => {\n            // your code goes here\n        })\n        .catch(err => {\n            // error handling goes here\n        });\n\n\n    console.log(\"test indunil\");\n}",
+        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\nconst s3 = new AWS.S3();\n\nexports.handler = function (event, context, callback) {\n    console.log(\"check 1 \");\n    sns.getTopicAttributes({\n        TopicArn: 'arn:aws:sns:us-east-1:318300609668:TestSNS'\n    }).promise()\n        .then(data => {\n            // your code goes here\n        })\n        .catch(err => {\n            // error handling goes here\n        });\n\n\n    console.log(\"test indunil\");\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -110,7 +110,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1561094960153
+    "lastSave": 1561095997184
   },
   "VCS_STATE": {
     "provider": "GitHub",
