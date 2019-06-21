@@ -24,7 +24,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "Sample1/lambda.js",
-        "code": "let AWS = require('aws-sdk');\r\nconst sns = new AWS.SNS();\r\n\r\nexports.handler = function (event, context, callback) {\r\n\r\n    callback(null, { \"message\": \"Successfully executed\" });\r\n    sns.setTopicAttributes({\r\n        AttributeName: 'DisplayName',\r\n        AttributeValue: 'indunil',\r\n        TopicArn: 'arn:aws:sns:us-east-1:318300609668:TestSNS'\r\n    }).promise()\r\n        .then(data => {\r\n            callback(null, { \"message\": \"Successfully y executed\" })\r\n            // your code goes here\r\n        })\r\n        .catch(err => {\r\n            callback(null, { \"message\": \"Successfully n  executed\" })\r\n            // error handling goes here\r\n        });\r\n        callback(null, {\"message\": \"Successfully gggg executed\"});\r\n}",
+        "code": "let AWS = require('aws-sdk');\r\nconst s3 = new AWS.S3();\r\nexports.handler = function(event, context, callback) {\r\n    \r\n    callback(null, {\"message\": \"Successfully executed jsb\"});\r\ns3.getBucketLocation({\r\n    'Bucket': \"sigma-slappforge-318300609668-us-east-1-build-artifacts-922355\"\r\n}).promise()\r\n    .then(data => {\r\n        console.log(data);           // successful response\r\n        /*\r\n        data = {\r\n            LocationConstraint: \"us-west-2\"\r\n        }\r\n        */\r\n    })\r\n    .catch(err => {\r\n        console.log(err, err.stack); // an error occurred\r\n    });\r\n",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -127,6 +127,17 @@
             "name": "as2-test-lahiru"
           }
         }
+      },
+      "s3sigmaSlappforge318300609668UsEast1BuildArtifacts922355": {
+        "name": "s3sigmaSlappforge318300609668UsEast1BuildArtifacts922355",
+        "type": "S3",
+        "config": {
+          "mode": 1,
+          "bucket": {
+            "region": "us-east-1",
+            "name": "sigma-slappforge-318300609668-us-east-1-build-artifacts-922355"
+          }
+        }
       }
     },
     "customTemplate": {
@@ -162,7 +173,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1561099424325
+    "lastSave": 1561102025248
   },
   "VCS_STATE": {
     "provider": "GitHub",
