@@ -9,8 +9,10 @@ exports.handler = function (event, context, callback) {
     }).promise()
         .then(data => {
             // your code goes here
+             console.log("check 1=2 ");
         })
         .catch(err => {
+             console.log("check 4");
             // error handling goes here
         });
 
