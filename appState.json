@@ -8,7 +8,9 @@
         "type": "DIRECTORY",
         "isDirectory": true,
         "children": [
-          "420f8faa-56da-4b53-92ca-61f31399fcb6"
+          "420f8faa-56da-4b53-92ca-61f31399fcb6",
+          "944d4052-2caa-4f9f-bace-ef69ed9fa235",
+          "5cfb5d50-4e3a-4e14-9161-9da390e97e86"
         ],
         "isRemovable": false,
         "filePath": "Sample1"
@@ -22,7 +24,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "Sample1/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\nconst s3 = new AWS.S3();\n\nexports.handler = function (event, context, callback) {\n    console.log(\"check 1 \");\n    sns.getTopicAttributes({\n        sns.getTopicAttributes({\n            TopicArn: 'arn:aws:sns:us-east-1:318300609668:TestSNS'\n        }).promise()\n            .then(data => {\n                // your code goes here\n            })\n            .catch(err => {\n                // error handling goes here\n            });\n        TopicArn: 'arn:aws:sns:us-east-1:318300609668:TestSNS'\n    }).promise()\n        .then(data => {\n            // your code goes here\n            console.log(\"check 1=2 \");\n        })\n        .catch(err => {\n            console.log(\"check 4\");\n            // error handling goes here\n        });\n\n\n    console.log(\"test indunil\");\n}",
+        "code": "exports.handler = function(event, context, callback) {\r\n    \r\n    callback(null, {\"message\": \"Successfully executed\"});\r\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -36,12 +38,51 @@
             "config": {}
           }
         ]
+      },
+      "944d4052-2caa-4f9f-bace-ef69ed9fa235": {
+        "id": "944d4052-2caa-4f9f-bace-ef69ed9fa235",
+        "parent": "a5684fe0-ae79-4d48-bac6-62df16b7b7c1",
+        "name": "hiruinduni.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "Sample1/hiruinduni.js",
+        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\n\nexports.handler = function (event, context, callback) {\n    sns.getTopicAttributes({\n        TopicArn: 'arn:aws:sns:us-east-1:318300609668:TestSNS'\n    }).promise()\n        .then(data => {\n            // your code goes here\n        })\n        .catch(err => {\n            // error handling goes here\n        });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": []
+      },
+      "5cfb5d50-4e3a-4e14-9161-9da390e97e86": {
+        "id": "5cfb5d50-4e3a-4e14-9161-9da390e97e86",
+        "parent": "a5684fe0-ae79-4d48-bac6-62df16b7b7c1",
+        "name": "sachithra.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "Sample1/sachithra.js",
+        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": []
       }
     },
     "deletedFiles": [],
     "rootNode": "a5684fe0-ae79-4d48-bac6-62df16b7b7c1",
     "openFiles": [
-      "420f8faa-56da-4b53-92ca-61f31399fcb6"
+      "420f8faa-56da-4b53-92ca-61f31399fcb6",
+      "5cfb5d50-4e3a-4e14-9161-9da390e97e86"
     ],
     "currentFileId": "420f8faa-56da-4b53-92ca-61f31399fcb6",
     "resources": {
@@ -74,6 +115,17 @@
           "topicRegion": "us-east-1",
           "snsType": 0,
           "subscriptions": []
+        }
+      },
+      "s3as2TestLahiru": {
+        "name": "s3as2TestLahiru",
+        "type": "S3",
+        "config": {
+          "mode": 1,
+          "bucket": {
+            "region": "us-east-1",
+            "name": "as2-test-lahiru"
+          }
         }
       }
     },
@@ -110,7 +162,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1561096530254
+    "lastSave": 1561097601354
   },
   "VCS_STATE": {
     "provider": "GitHub",
