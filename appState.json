@@ -24,7 +24,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "Sample1/lambda.js",
-        "code": "let AWS = require('aws-sdk');\r\nconst s3 = new AWS.S3();\r\nexports.handler = function(event, context, callback) {\r\n    \r\n    callback(null, {\"message\": \"Successfully executed jsb\"});\r\ns3.getBucketLocation({\r\n    'Bucket': \"sigma-slappforge-318300609668-us-east-1-build-artifacts-922355\"\r\n}).promise()\r\n    .then(data => {\r\n        console.log(data);           // successful response\r\n        /*\r\n        data = {\r\n            LocationConstraint: \"us-west-2\"\r\n        }\r\n        */\r\n    })\r\n    .catch(err => {\r\n        console.log(err, err.stack); // an error occurred\r\n    });\r\n",
+        "code": "let AWS = require('aws-sdk');\r\nconst s3 = new AWS.S3();\r\nexports.handler = function(event, context, callback) {\r\ns3.getObject({\r\n    'Bucket': \"aws-amplify-hotspaces\",\r\n    'Key': \"'h\"\r\n}).promise()\r\n    .then(data => {\r\n        console.log(data); \r\n        callback(null, {\"message\": \"Successfull : \",data});          // successful response\r\n        /*\r\n        data = {\r\n            AcceptRanges: \"bytes\", \r\n            ContentLength: 3191, \r\n            ContentType: \"image/jpeg\", \r\n            ETag: \"\\\"6805f2cfc46c0f04559748bb039d69ae\\\"\", \r\n            LastModified: \"<Date Representation>\", \r\n            Metadata: {}, \r\n            TagCount: 2, \r\n            VersionId: \"null\"\r\n        }\r\n        */\r\n    })\r\n    .catch(err => {\r\n \r\n        console.log(err, err.stack); \r\n        callback(null, {\"message\": \"error :\",err});// an error occurred\r\n    });\r\n\r\n\r\n    \r\n    }\r\n",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -138,6 +138,17 @@
             "name": "sigma-slappforge-318300609668-us-east-1-build-artifacts-922355"
           }
         }
+      },
+      "s3awsAmplifyHotspaces": {
+        "name": "s3awsAmplifyHotspaces",
+        "type": "S3",
+        "config": {
+          "mode": 1,
+          "bucket": {
+            "region": "us-east-1",
+            "name": "aws-amplify-hotspaces"
+          }
+        }
       }
     },
     "customTemplate": {
@@ -173,7 +184,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1561102025248
+    "lastSave": 1561103008402
   },
   "VCS_STATE": {
     "provider": "GitHub",
