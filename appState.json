@@ -24,7 +24,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "Sample1/lambda.js",
-        "code": "let AWS = require('aws-sdk');\r\nconst s3 = new AWS.S3();\r\nexports.handler = function(event, context, callback) {\r\ns3.getObject({\r\n    'Bucket': \"aws-amplify-hotspaces\",\r\n    'Key': \"'h\"\r\n}).promise()\r\n    .then(data => {\r\n        console.log(data); \r\n        callback(null, {\"message\": \"Successfull : \",data});          // successful response\r\n        /*\r\n        data = {\r\n            AcceptRanges: \"bytes\", \r\n            ContentLength: 3191, \r\n            ContentType: \"image/jpeg\", \r\n            ETag: \"\\\"6805f2cfc46c0f04559748bb039d69ae\\\"\", \r\n            LastModified: \"<Date Representation>\", \r\n            Metadata: {}, \r\n            TagCount: 2, \r\n            VersionId: \"null\"\r\n        }\r\n        */\r\n    })\r\n    .catch(err => {\r\n \r\n        console.log(err, err.stack); \r\n        callback(null, {\"message\": \"error :\",err});// an error occurred\r\n    });\r\n\r\n\r\n    \r\n    }\r\n",
+        "code": "let AWS = require('aws-sdk');\r\nconst s3 = new AWS.S3();\r\nexports.handler = function (event, context, callback) {\r\n    s3.getObject({\r\n        'Bucket': \"aws-amplify-hotspaces\",\r\n        'Key': \"Hello world\"\r\n    }).promise()\r\n        .then(data => {\r\n            console.log(data);\r\n            callback(null, { \"message\": \"Successfull : \", data });          // successful response\r\n            /*\r\n            data = {\r\n                AcceptRanges: \"bytes\", \r\n                ContentLength: 3191, \r\n                ContentType: \"image/jpeg\", \r\n                ETag: \"\\\"6805f2cfc46c0f04559748bb039d69ae\\\"\", \r\n                LastModified: \"<Date Representation>\", \r\n                Metadata: {}, \r\n                TagCount: 2, \r\n                VersionId: \"null\"\r\n            }\r\n            */\r\n        })\r\n        .catch(err => {\r\n\r\n            console.log(err, err.stack);\r\n            callback(null, { \"message\": \"error :\", err });// an error occurred\r\n        });\r\n\r\n\r\n\r\n}\r\n",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -184,7 +184,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1561103008402
+    "lastSave": 1561103587448
   },
   "VCS_STATE": {
     "provider": "GitHub",
