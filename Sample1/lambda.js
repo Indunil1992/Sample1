@@ -7,7 +7,7 @@ exports.handler = function (event, context, callback) {
     }).promise()
         .then(data => {
             console.log(data);
-            callback(null, { "message": "Successfull : ", data });          // successful response
+            callback(null, { "message": "Success yesyes : ", data });          // successful response
             /*
             data = {
                 AcceptRanges: "bytes", 
